@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Basic SEO Meta Tags -->
+  <meta name="title" content="TiwanaConnect - Bridging Generations">
+  <meta name="description" content="TiwanaConnect is a private digital platform for the Tiwana biradri. Explore your family tree, preserve your legacy, and stay connected with generations.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tiwanaconnect.com/">
+  <meta property="og:title" content="TiwanaConnect - Bridging Generations">
+  <meta property="og:description" content="Discover your family connections with TiwanaConnect. Visualize family trees, maintain records, and protect your family's history.">
+  <meta property="og:image" content="https://tiwanaconnect.com/logo.svg"> <!-- Use correct image URL -->
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://tiwanaconnect.com/">
+  <meta property="twitter:title" content="TiwanaConnect - Bridging Generations">
+  <meta property="twitter:description" content="A secure and private platform for the Tiwana family to connect and preserve their digital legacy.">
+  <meta property="twitter:image" content="https://tiwanaconnect.com/logo.svg">
+  
+  <meta name="robots" content="index, follow">
+  <!-- Canonical Link -->
+  <link rel="canonical" href="https://tiwanaconnect.com/" />
+
+  <!-- Keywords (optional but less important now) -->
+  <meta name="keywords" content="Tiwana, Tiwana family, family tree, biradri, connect family, family network, family legacy, TiwanaConnect, ancestry">
+
+  <!-- Author -->
+  <meta name="author" content="Muhammad Arslan Tiwana">
+  <title>TiwanaConnect - Bridging Generations</title>
+  <link rel="icon" type="image/x-icon" href="logo.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #1a1a2e;
+      --bg-card: rgba(255, 255, 255, 0.05);
+      --text-primary: #ffffff;
+      --text-secondary: #a0a0a0;
+      --text-accent: #e0e0e0;
+      --accent-primary: #6366f1;
+      --accent-secondary: #8b5cf6;
+      --accent-gold: #fbbf24;
+      --glass-bg: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --shadow-glow: rgba(99, 102, 241, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Background Animation */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 40% 40%, rgba(251, 191, 36, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Custom Logo SVG */
+    .logo-svg {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.3));
+      animation: logoGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes logoGlow {
+      from { filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.3)); }
+      to { filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.5)); }
+    }
+
+    /* Header Section */
+    header {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%),
+                  url('https://images.unsplash.com/photo-1524396309943-e02f77d2e3e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    .header-content {
+      max-width: 800px;
+      z-index: 2;
+    }
+
+    .logo-container {
+      margin-bottom: 2rem;
+      animation: floatIn 2s ease-out;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 50%, var(--accent-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: textGlow 2s ease-out 0.5s both;
+    }
+
+    header p {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      margin-bottom: 2.5rem;
+      color: var(--text-accent);
+      font-weight: 300;
+      animation: fadeInUp 1.5s ease-out 0.8s both;
+    }
+
+    .cta-button {
+      background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+      color: white;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 8px 30px var(--shadow-glow);
+      transition: all 0.3s ease;
+      animation: fadeInUp 1.5s ease-out 1.1s both;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px var(--shadow-glow);
+    }
+
+    .cta-button:hover::before {
+      left: 100%;
+    }
+
+    /* Glass Card Sections */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      animation: fadeInUp 1s ease-out both;
+    }
+
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .glass-card:hover::before {
+      opacity: 1;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+      border-radius: 2px;
+    }
+
+    .section-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    /* Features List */
+    .features-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-primary);
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateX(5px);
+    }
+
+    .feature-icon {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    .feature-content {
+      flex: 1;
+    }
+
+    .feature-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-description {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Contact Section */
+    .contact-info {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      border-radius: 20px;
+      color: white;
+    }
+
+    .contact-info a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--glass-border);
+      background: var(--glass-bg);
+      color: var(--text-secondary);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes textGlow {
+      from {
+        opacity: 0;
+        filter: blur(5px);
+      }
+      to {
+        opacity: 1;
+        filter: blur(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .section {
+        padding: 2rem 1rem;
+      }
+
+      .glass-card {
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .feature-item {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .feature-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      .logo-svg {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .glass-card {
+        padding: 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .cta-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+      }
+    }
+
+    /* Scroll animations */
+    .fade-in-view {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .fade-in-view.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "TiwanaConnect",
+    "url": "https://tiwanaconnect.com",
+    "description": "TiwanaConnect is a digital family platform for the Tiwana biradri. Build your family tree and preserve your generational legacy.",
+    "sameAs": [],
+    "publisher": {
+      "@type": "Organization",
+      "name": "TiwanaConnect"
+    }
+  }
+</script>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo-container">
+        <img src="logo.svg" class="logo-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" alt="TiwanaConnect Logo"></img>
+      </div>
+      <h1>TiwanaConnect</h1>
+      <p>Bridging Generations, Preserving Legacy.</p>
+      <button class="cta-button">Coming Soon</button>
+    </div>
+  </header>
+
+  <div class="section fade-in-view">
+    <div class="glass-card">
+      <h2 class="section-title">About the App</h2>
+      <p class="section-text">
+        TiwanaConnect is a private digital platform for the Tiwana biradri. It helps document and visualize our family tree, understand relationships, and preserve our shared legacy. Designed to connect hundreds of family members across generations — from elders to the youngest ones.
+      </p>
+    </div>
+  </div>
+
+  <div class="section fade-in-view">
+    <div class="glass-card">
+      <h2 class="section-title">First Release Features</h2>
+      <ul class="features-list">
+        <li class="feature-item">
+          <div class="feature-icon">🌳</div>
+          <div class="feature-content">
+            <div class="feature-title">Family Tree Visualization</div>
+            <div class="feature-description">Easy-to-understand relationship graphs that show connections across generations.</div>
+          </div>
+        </li>
+        <li class="feature-item">
+          <div class="feature-icon">📇</div>
+          <div class="feature-content">
+            <div class="feature-title">Member Profiles</div>
+            <div class="feature-description">Each member has a personal record with essential details and information.</div>
+          </div>
+        </li>
+        <li class="feature-item">
+          <div class="feature-icon">🧬</div>
+          <div class="feature-content">
+            <div class="feature-title">Relation Mapping</div>
+            <div class="feature-description">Add father, mother, spouse, children; auto-generates comprehensive family tree.</div>
+          </div>
+        </li>
+        <li class="feature-item">
+          <div class="feature-icon">🔎</div>
+          <div class="feature-content">
+            <div class="feature-title">Search & Navigation</div>
+            <div class="feature-description">Find any family member quickly with powerful search functionality.</div>
+          </div>
+        </li>
+        <li class="feature-item">
+          <div class="feature-icon">📤</div>
+          <div class="feature-content">
+            <div class="feature-title">Import/Export</div>
+            <div class="feature-description">Backup or transfer family data easily with secure import/export options.</div>
+          </div>
+        </li>
+        <li class="feature-item">
+          <div class="feature-icon">🛡️</div>
+          <div class="feature-content">
+            <div class="feature-title">Private & Secure</div>
+            <div class="feature-description">Only accessible to approved family members with robust security measures.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section fade-in-view">
+    <div class="glass-card">
+      <h2 class="section-title">Our Vision</h2>
+      <p class="section-text">
+        This app isn't just a tool — it's a digital legacy for future generations. We aim to keep our roots connected, even as we grow around the world. Future updates will include event invitations, inheritance planning, and private social features.
+      </p>
+    </div>
+  </div>
+
+  <div class="section fade-in-view">
+    <div class="glass-card">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-info">
+        <p style="margin-bottom: 1rem;">For questions, collaboration, or early access:</p>
+        <a href="mailto:support@tiwanaconnect.com">support@tiwanaconnect.com</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© TiwanaConnect 2025. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Scroll-triggered animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-view').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth scrolling for any internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
